@@ -1,3 +1,4 @@
+import confetti from "canvas-confetti"
 import { useEffect, useState } from "react"
 
 export const useBoard = () => {
@@ -72,7 +73,10 @@ export const useBoard = () => {
     updatedBoard[index] = newTurn // guardo el turno
     setBoard(updatedBoard)
     const newWinner = checkWinner(updatedBoard)
-    if (newWinner) setWinner(newWinner)
+    if (newWinner) {
+      confetti()
+      setWinner(newWinner)
+    }
     else if (checkEndGame(updatedBoard)) setWinner(false)
   }
 
