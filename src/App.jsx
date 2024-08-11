@@ -128,9 +128,12 @@ export const App = () => {
                     winner === false ? "Empate" : "Ganó"
                   }
                 </h2>
-                <header>
-                  <Square>{winner}</Square>
-                </header>
+                {
+                  winner &&
+                  <header>
+                    <Square>{winner}</Square>
+                  </header>
+                }
                 <footer>
                   <button
                     className="bg-white p-5 rounded-lg shadow text-lg"
