@@ -90,7 +90,7 @@ export const App = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-5 lg:justify-between items-center p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
+      <div className="flex flex-col gap-5 lg:flex-row lg:justify-between items-center p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
         <h1 className="text-center text-3xl">Tic-Tac-Toe</h1>
         <button
           className="bg-white p-5 rounded-lg shadow text-lg disabled:opacity-50"
@@ -99,7 +99,7 @@ export const App = () => {
           onClick={resetGame}
         >Reiniciar Juego</button>
       </div>
-      <main className="mx-5">
+      <main className="mx-5 relative">
         <section className="grid grid-cols-3 gap-4 w-fit mx-auto">
           {
             board.map((_, index) => (
@@ -121,22 +121,25 @@ export const App = () => {
         </section>
         {
           winner !== null && (
-            <>
-            {
-              winner ? (
-                <p className="bg-white p-5 shadow rounded-lg w-1/2 mx-auto text-center text-xl my-10">El ganaror es {winner}</p>
-              ) : (
-                <div className="flex flex-col gap-1 items-center md:flex-row md:justify-evenly">
-                  <p className="bg-white p-5 shadow rounded-lg w-1/2 mx-auto text-center text-xl my-10">Empate</p>
+            <section className="absolute h-screen w-full bottom-0 grid place-items-center">
+              <div className="bg-dark w-96 h-96 grid place-items-center rounded-lg border-4">
+                <h2 className="text-slate-200 text-3xl">
+                  {
+                    winner === false ? "Empate" : "Ganó"
+                  }
+                </h2>
+                <header>
+                  <Square>{winner}</Square>
+                </header>
+                <footer>
                   <button
-                    className="bg-white p-5 rounded-lg shadow text-lg disabled:opacity-50"
+                    className="bg-white p-5 rounded-lg shadow text-lg"
                     type="button"
                     onClick={resetGame}
                   >Reiniciar Juego</button>
-                </div>
-              )
-            }
-            </>
+                </footer>
+              </div>
+            </section>
           )
         }
       </main>
