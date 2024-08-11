@@ -122,7 +122,7 @@ export const App = () => {
         {
           winner !== null && (
             <section className="absolute h-screen w-full bottom-0 grid place-items-center">
-              <div className="bg-dark w-96 h-96 grid place-items-center rounded-lg border-4">
+              <div className="bg-dark w-72 h-72 lg:w-96 lg:h-96 grid place-items-center rounded-lg border-4">
                 <h2 className="text-slate-200 text-3xl">
                   {
                     winner === false ? "Empate" : "Ganó"
