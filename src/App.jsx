@@ -1,4 +1,5 @@
 import { Square } from "./components/Square"
+import { WinnerModal } from "./components/WinnerModal"
 import { TURNS } from "./constants/constants"
 import { useBoard } from "./hooks/useBoard"
 
@@ -37,32 +38,10 @@ export const App = () => {
           <Square isSelected={turn === TURNS.X}>{TURNS.O}</Square>
           <Square isSelected={turn === TURNS.O}>{TURNS.X}</Square>
         </section>
-        {
-          winner !== null && (
-            <section className="absolute h-screen w-full bottom-0 grid place-items-center">
-              <div className="bg-dark w-72 h-72 lg:w-96 lg:h-96 grid place-items-center rounded-lg border-4">
-                <h2 className="text-slate-200 text-3xl">
-                  {
-                    winner === false ? "Empate" : "Ganó"
-                  }
-                </h2>
-                {
-                  winner &&
-                  <header>
-                    <Square>{winner}</Square>
-                  </header>
-                }
-                <footer>
-                  <button
-                    className="bg-white p-5 rounded-lg shadow text-lg"
-                    type="button"
-                    onClick={resetGame}
-                  >Reiniciar Juego</button>
-                </footer>
-              </div>
-            </section>
-          )
-        }
+        <WinnerModal
+          winner={winner} 
+          resetGame={resetGame}
+        />
       </main>
 
     </>)
