@@ -1,11 +1,6 @@
 import { Square } from "./components/Square"
+import { TURNS } from "./constants/constants"
 import { useBoard } from "./hooks/useBoard"
-
-// definiendo los turnos
-const TURNS = {
-  X: "❌",
-  O: "⭕"
-}
 
 export const App = () => {
 
