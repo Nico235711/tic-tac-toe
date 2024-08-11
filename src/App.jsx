@@ -90,7 +90,7 @@ export const App = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
+      <div className="flex flex-col gap-5 lg:justify-between items-center p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
         <h1 className="text-center text-3xl">Tic-Tac-Toe</h1>
         <button
           className="bg-white p-5 rounded-lg shadow text-lg disabled:opacity-50"
