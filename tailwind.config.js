@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
-        dark: "rgb(0 0 0 / 70%)"
+        dark: "rgb(0 0 0 / 85%)"
       }
     },
   },
