@@ -2,24 +2,42 @@ import confetti from "canvas-confetti"
 import { useEffect, useState } from "react"
 import { TURNS, WINNER_COMBOS } from "../constants/constants"
 
-export const useBoard = () => {
+const initialBoard = () => {
+  const localStorageBoard = localStorage.getItem("board")
+  return localStorageBoard ? JSON.parse(localStorageBoard) : Array(9).fill(null)
+}
 
-  const initialBoard = () => {
-    const localStorageBoard = localStorage.getItem("board")
-    return localStorageBoard ? JSON.parse(localStorageBoard) : Array(9).fill(null)
-  }
+const initialTurn = () => {
+  const localStorageTurn = localStorage.getItem("turn")
+  return localStorageTurn ? localStorageTurn : TURNS.O
+}
+
+const initialWinner = () => {
+  const localStorageWinner = localStorage.getItem("winner")
+  return localStorageWinner !== "null" ? localStorageWinner : null
+}
+
+export const useBoard = () => {
 
   // mi tablero (estado)
   const [board, setBoard] = useState(initialBoard)
-  const [turn, setTurn] = useState(TURNS.O)
+  const [turn, setTurn] = useState(initialTurn)
 
   // null -> hay ganador, false -> empate
-  const [winner, setWinner] = useState(null)
+  const [winner, setWinner] = useState(initialWinner)
   const [markWinner, setMarkWinner] = useState(Array(9).fill(null))
 
   useEffect(() => {
     localStorage.setItem("board", JSON.stringify(board))
   }, [board]);
+
+  useEffect(() => {
+    localStorage.setItem("turn", turn)
+  }, [turn]);
+
+  useEffect(() => {
+    localStorage.setItem("winner", winner)
+  }, [winner]);
 
   const checkWinner = (boardToCheck) => {
     // reviso todas las combinaciones ganadoras
