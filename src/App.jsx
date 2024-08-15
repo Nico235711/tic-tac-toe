@@ -9,16 +9,10 @@ export const App = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-5 lg:flex-row lg:justify-between items-center p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
+      <div className="p-5 border-b-2 border-b-red-300 mb-5 bg-red-200">
         <h1 className="text-center text-3xl">Tic-Tac-Toe</h1>
-        <button
-          className="bg-white p-5 rounded-lg shadow text-lg disabled:opacity-50"
-          type="button"
-          disabled={!winner}
-          onClick={resetGame}
-        >Reiniciar Juego</button>
       </div>
-      <main className="mx-5 relative">
+      <main className="mx-5 mb-5 relative">
         <section className="grid grid-cols-3 gap-4 w-fit mx-auto">
           {
             board.map((_, index) => (
