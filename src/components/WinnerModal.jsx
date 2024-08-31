@@ -6,9 +6,9 @@ export const WinnerModal = ({ winner, resetGame }) => {
 
   return (
 
-    <section className="absolute h-screen w-full bottom-0 grid place-items-center">
-      <div className="bg-dark w-72 h-72 lg:w-96 lg:h-96 grid place-items-center rounded-lg border-4">
-        <h2 className="text-slate-200 text-3xl">{winnerText}</h2>
+    <section className="absolute bottom-0 grid w-full h-screen place-items-center">
+      <div className="grid border-4 rounded-lg bg-dark w-72 h-72 lg:w-96 lg:h-96 place-items-center">
+        <h2 className="text-3xl text-slate-200">{winnerText}</h2>
         {
           winner &&
           <header>
@@ -17,7 +17,7 @@ export const WinnerModal = ({ winner, resetGame }) => {
         }
         <footer>
           <button
-            className="bg-white p-5 rounded-lg shadow text-lg"
+            className="p-5 text-lg bg-white rounded-lg shadow"
             type="button"
             onClick={resetGame}
           >Reiniciar Juego</button>
